@@ -23,6 +23,8 @@ success: function(data){
   
    const element = document.getElementById(j);
    element.innerHTML = json.description; 
+   const myText = document.getElementsByClassName("text-muted")[j-1];
+   myText.innerHTML=json.current_date;
 
     },
     error: function(data){
@@ -31,18 +33,5 @@ success: function(data){
     }
  
  }); }
-   
-    $.ajax({
-    type:'POST',
-    url:'https://aztro.sameerkumar.website?sign='+sign+'&day=today',
-    success:function(data){ 
-    var str = JSON.stringify(data);
-   var json = $.parseJSON(str);
-     for(let i=0;i<12;i++)
-    {
-     const myText = document.getElementsByClassName("text-muted")[i];
-     myText.innerHTML=json.current_date;
-     } }
-    });
   
  
